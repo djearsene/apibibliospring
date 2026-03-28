@@ -42,4 +42,18 @@ public class LivreController {
     livres.removeIf(l -> l.getId() == id);
     return "Livre supprimé.";
   }
+
+  // PUT /livres/{id} : modifier un livre existant
+  @PutMapping("/{id}")
+  public Livre modifierLivre(@PathVariable int id, @RequestBody Livre livreModifie) {
+    for (Livre l : livres) {
+      if (l.getId() == id) {
+        l.setTitre(livreModifie.getTitre());
+        l.setAuteur(livreModifie.getAuteur());
+        l.setAnnee(livreModifie.getAnnee());
+        return l;
+      }
+    }
+    return null;
+  }
 }
