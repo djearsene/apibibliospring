@@ -1,22 +1,28 @@
 package com.bibliotheque.api_bibliotheque;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "livres")
 public class Livre {
 
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
+
   private String titre;
   private String auteur;
   private int annee;
 
-  // Constructeur
-  public Livre(int id, String titre, String auteur, int annee) {
-    this.id = id;
+  // Constructeur vide obligatoire pour JPA
+  public Livre() {
+  }
+
+  // Constructeur avec paramètres
+  public Livre(String titre, String auteur, int annee) {
     this.titre = titre;
     this.auteur = auteur;
     this.annee = annee;
-  }
-
-  // Constructeur vide nécessaire pour Spring Boot
-  public Livre() {
   }
 
   // Getters
