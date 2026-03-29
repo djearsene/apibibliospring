@@ -1,0 +1,49 @@
+package com.bibliotheque.api_bibliotheque;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class LivreService {
+
+    @Autowired
+    private LivreRepository livreRepository;
+
+    // Récupérer tous les livres
+    public List<Livre> getTousLesLivres() {
+        return livreRepository.findAll();
+    }
+
+    // Récupérer un livre par son id
+    public Livre getLivreParId(int id) {
+        Optional<Livre> livre = livreRepository.findById(id);
+        if (livre.isPresent()) {
+            return livre.get();
+        }
+        throw new LivreNotFoundException(id);
+    }
+
+    // Ajouter un livre
+    public Livre ajouterLivre(Livre livre) {
+        return livreRepository.save(livre);
+    }
+
+    // Modifier un livre
+    public Livre modifierLivre(int id, Livre livreModifie) {
+        Livre livre = getLivreParId(id);
+        livre.setTitre(livreModifie.getTitre());
+        livre.setAuteur(livreModifie.getAuteur());
+        livre.setAnnee(livreModifie.getAnnee());
+        return livreRepository.save(livre);
+    }
+
+    // Supprimer un livre
+    public void supprimerLivre(int id) {
+        if (!livreRepository.existsById(id)) {
+            throw new LivreNotFoundException(id);
+        }
+        livreRepository.deleteById(id);
+    }
+}
