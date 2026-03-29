@@ -1,6 +1,7 @@
 package com.bibliotheque.api_bibliotheque;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 @Entity
 @Table(name = "livres")
@@ -10,8 +11,14 @@ public class Livre {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
 
+  @NotBlank(message = "Le titre est obligatoire.")
   private String titre;
+
+  @NotBlank(message = "L'auteur est obligatoire.")
   private String auteur;
+
+  @Min(value = 1000, message = "L'année doit être supérieure à 1000.")
+  @Max(value = 2026, message = "L'année ne peut pas dépasser 2026.")
   private int annee;
 
   // Constructeur vide obligatoire pour JPA

@@ -1,5 +1,6 @@
 package com.bibliotheque.api_bibliotheque;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,13 +28,13 @@ public class LivreController {
 
     // POST /livres
     @PostMapping
-    public ResponseEntity<Livre> ajouterLivre(@RequestBody Livre livre) {
+    public ResponseEntity<Livre> ajouterLivre(@Valid @RequestBody Livre livre) {
         return ResponseEntity.status(HttpStatus.CREATED).body(livreService.ajouterLivre(livre));
     }
 
     // PUT /livres/{id}
     @PutMapping("/{id}")
-    public ResponseEntity<Livre> modifierLivre(@PathVariable int id, @RequestBody Livre livreModifie) {
+    public ResponseEntity<Livre> modifierLivre(@PathVariable int id, @Valid @RequestBody Livre livreModifie) {
         return ResponseEntity.ok(livreService.modifierLivre(id, livreModifie));
     }
 
