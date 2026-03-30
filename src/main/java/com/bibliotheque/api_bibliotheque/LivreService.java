@@ -1,8 +1,9 @@
 package com.bibliotheque.api_bibliotheque;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -11,9 +12,9 @@ public class LivreService {
     @Autowired
     private LivreRepository livreRepository;
 
-    // Récupérer tous les livres
-    public List<Livre> getTousLesLivres() {
-        return livreRepository.findAll();
+    // Récupérer tous les livres avec pagination
+    public Page<Livre> getTousLesLivres(Pageable pageable) {
+        return livreRepository.findAll(pageable);
     }
 
     // Récupérer un livre par son id
