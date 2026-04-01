@@ -26,6 +26,16 @@ public class LivreService {
         throw new LivreNotFoundException(id);
     }
 
+    // Rechercher par titre
+    public Page<Livre> rechercherParTitre(String titre, Pageable pageable) {
+        return livreRepository.findByTitreContainingIgnoreCase(titre, pageable);
+    }
+
+    // Rechercher par auteur
+    public Page<Livre> rechercherParAuteur(String auteur, Pageable pageable) {
+        return livreRepository.findByAuteurContainingIgnoreCase(auteur, pageable);
+    }
+
     // Ajouter un livre
     public Livre ajouterLivre(Livre livre) {
         return livreRepository.save(livre);
