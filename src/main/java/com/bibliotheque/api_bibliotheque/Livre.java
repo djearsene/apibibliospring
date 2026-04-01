@@ -7,62 +7,41 @@ import jakarta.validation.constraints.*;
 @Table(name = "livres")
 public class Livre {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-  @NotBlank(message = "Le titre est obligatoire.")
-  private String titre;
+    @NotBlank(message = "Le titre est obligatoire.")
+    private String titre;
 
-  @NotBlank(message = "L'auteur est obligatoire.")
-  private String auteur;
+    @Min(value = 1000, message = "L'année doit être supérieure à 1000.")
+    @Max(value = 2026, message = "L'année ne peut pas dépasser 2026.")
+    private int annee;
 
-  @Min(value = 1000, message = "L'année doit être supérieure à 1000.")
-  @Max(value = 2026, message = "L'année ne peut pas dépasser 2026.")
-  private int annee;
+    // Relation ManyToOne : plusieurs livres pour un auteur
+    @ManyToOne
+    @JoinColumn(name = "auteur_id")
+    private Auteur auteur;
 
-  // Constructeur vide obligatoire pour JPA
-  public Livre() {
-  }
+    // Constructeur vide
+    public Livre() {}
 
-  // Constructeur avec paramètres
-  public Livre(String titre, String auteur, int annee) {
-    this.titre = titre;
-    this.auteur = auteur;
-    this.annee = annee;
-  }
+    // Constructeur avec paramètres
+    public Livre(String titre, int annee, Auteur auteur) {
+        this.titre = titre;
+        this.annee = annee;
+        this.auteur = auteur;
+    }
 
-  // Getters
-  public int getId() {
-    return id;
-  }
+    // Getters
+    public int getId() { return id; }
+    public String getTitre() { return titre; }
+    public int getAnnee() { return annee; }
+    public Auteur getAuteur() { return auteur; }
 
-  public String getTitre() {
-    return titre;
-  }
-
-  public String getAuteur() {
-    return auteur;
-  }
-
-  public int getAnnee() {
-    return annee;
-  }
-
-  // Setters
-  public void setId(int id) {
-    this.id = id;
-  }
-
-  public void setTitre(String titre) {
-    this.titre = titre;
-  }
-
-  public void setAuteur(String auteur) {
-    this.auteur = auteur;
-  }
-
-  public void setAnnee(int annee) {
-    this.annee = annee;
-  }
+    // Setters
+    public void setId(int id) { this.id = id; }
+    public void setTitre(String titre) { this.titre = titre; }
+    public void setAnnee(int annee) { this.annee = annee; }
+    public void setAuteur(Auteur auteur) { this.auteur = auteur; }
 }

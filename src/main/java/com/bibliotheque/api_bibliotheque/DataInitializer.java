@@ -10,46 +10,40 @@ public class DataInitializer implements CommandLineRunner {
     @Autowired
     private LivreRepository livreRepository;
 
-    // Listes de données fictives
-    private String[] titres = {
-        "Le Petit Prince", "L'Alchimiste", "Germinal", "Les Misérables",
-        "Notre-Dame de Paris", "Madame Bovary", "Le Rouge et le Noir",
-        "L'Étranger", "La Peste", "Le Comte de Monte-Cristo",
-        "Voyage au bout de la nuit", "À la recherche du temps perdu",
-        "Les Fleurs du mal", "Candide", "Zadig", "L'Ingénu",
-        "Robinson Crusoé", "Gulliver", "Don Quichotte", "Faust"
-    };
-
-    private String[] auteurs = {
-        "Saint-Exupéry", "Paulo Coelho", "Émile Zola", "Victor Hugo",
-        "Victor Hugo", "Gustave Flaubert", "Stendhal",
-        "Albert Camus", "Albert Camus", "Alexandre Dumas",
-        "Louis-Ferdinand Céline", "Marcel Proust",
-        "Charles Baudelaire", "Voltaire", "Voltaire", "Voltaire",
-        "Daniel Defoe", "Jonathan Swift", "Cervantes", "Goethe"
-    };
+    @Autowired
+    private AuteurRepository auteurRepository;
 
     @Override
     public void run(String... args) throws Exception {
 
-        // Ne pas ajouter si des livres existent déjà
         if (livreRepository.count() > 0) {
-            System.out.println("Des livres existent déjà, pas d'initialisation.");
+            System.out.println("Des données existent déjà, pas d'initialisation.");
             return;
         }
 
-        System.out.println("Initialisation des données : ajout de 200 livres...");
+        System.out.println("Initialisation des données...");
 
+        // Créer des auteurs
+        Auteur a1 = auteurRepository.save(new Auteur("Saint-Exupéry", "Française", 1900));
+        Auteur a2 = auteurRepository.save(new Auteur("Paulo Coelho", "Brésilienne", 1947));
+        Auteur a3 = auteurRepository.save(new Auteur("Émile Zola", "Française", 1840));
+        Auteur a4 = auteurRepository.save(new Auteur("Victor Hugo", "Française", 1802));
+        Auteur a5 = auteurRepository.save(new Auteur("Albert Camus", "Française", 1913));
+
+        Auteur[] auteurs = {a1, a2, a3, a4, a5};
+        String[] titres = {
+            "Le Petit Prince", "L'Alchimiste", "Germinal",
+            "Les Misérables", "L'Étranger"
+        };
+
+        // Créer 200 livres
         for (int i = 0; i < 200; i++) {
-            // Choisir un titre et auteur de façon cyclique
+            Auteur auteur = auteurs[i % auteurs.length];
             String titre = titres[i % titres.length] + " - Tome " + (i + 1);
-            String auteur = auteurs[i % auteurs.length];
             int annee = 1800 + (i % 200);
-
-            Livre livre = new Livre(titre, auteur, annee);
-            livreRepository.save(livre);
+            livreRepository.save(new Livre(titre, annee, auteur));
         }
 
-        System.out.println("200 livres ajoutés avec succès !");
+        System.out.println("5 auteurs et 200 livres ajoutés avec succès !");
     }
 }
