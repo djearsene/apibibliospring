@@ -8,6 +8,8 @@ import org.springframework.data.domain.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 
 @RestController
 @RequestMapping("/livres")
@@ -84,4 +86,19 @@ public class LivreController {
         livreService.supprimerLivre(id);
         return ResponseEntity.ok("Livre supprimé.");
     }
+
+    // GET /livres/export/csv
+@GetMapping("/export/csv")
+@Operation(summary = "Exporter tous les livres en CSV")
+public ResponseEntity<byte[]> exporterCSV() {
+    String contenuCSV = livreService.exporterCSV();
+
+    HttpHeaders headers = new HttpHeaders();
+    headers.setContentType(MediaType.parseMediaType("text/csv"));
+    headers.setContentDispositionFormData("attachment", "livres.csv");
+
+    return ResponseEntity.ok()
+            .headers(headers)
+            .body(contenuCSV.getBytes());
+}
 }

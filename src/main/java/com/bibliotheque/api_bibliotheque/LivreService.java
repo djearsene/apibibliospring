@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
+import java.util.List;
 
 @Service
 public class LivreService {
@@ -57,4 +58,24 @@ public class LivreService {
         }
         livreRepository.deleteById(id);
     }
+
+    // Générer le contenu CSV de tous les livres
+public String exporterCSV() {
+    List<Livre> livres = livreRepository.findAll();
+    StringBuilder csv = new StringBuilder();
+
+    // En-tête du fichier CSV
+    csv.append("ID,Titre,Auteur,Année\n");
+
+    // Une ligne par livre
+    for (Livre livre : livres) {
+        String nomAuteur = livre.getAuteur() != null ? livre.getAuteur().getNom() : "Inconnu";
+        csv.append(livre.getId()).append(",");
+        csv.append("\"").append(livre.getTitre()).append("\"").append(",");
+        csv.append("\"").append(nomAuteur).append("\"").append(",");
+        csv.append(livre.getAnnee()).append("\n");
+    }
+
+    return csv.toString();
+}
 }
