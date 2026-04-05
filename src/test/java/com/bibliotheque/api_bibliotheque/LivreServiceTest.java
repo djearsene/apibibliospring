@@ -63,4 +63,48 @@ public class LivreServiceTest {
             livreService.supprimerLivre(999);
         });
     }
+
+    // Test 6 : exporterCSV retourne un contenu non vide
+    @Test
+    void exporterCSV_retourneContenuCSV() {
+        // Préparer
+        Auteur auteur = new Auteur("Zola", "Française", 1840);
+        Livre livre1 = new Livre("Germinal", 1885, auteur);
+        Livre livre2 = new Livre("Nana", 1880, auteur);
+        java.util.List<Livre> livres = java.util.List.of(livre1, livre2);
+
+        // Simuler
+        when(livreRepository.findAll()).thenReturn(livres);
+
+        // Exécuter
+        String csv = livreService.exporterCSV();
+
+        // Vérifier
+        assertNotNull(csv);
+        assertTrue(csv.contains("ID,Titre,Auteur,Année"));
+        assertTrue(csv.contains("Germinal"));
+        assertTrue(csv.contains("Nana"));
+        assertTrue(csv.contains("Zola"));
+    }
+
+    // Test 7 : exporterCSV contient le bon nombre de lignes
+    @Test
+    void exporterCSV_contientBonNombreDeLignes() {
+        // Préparer
+        Auteur auteur = new Auteur("Hugo", "Française", 1802);
+        Livre livre1 = new Livre("Les Misérables", 1862, auteur);
+        Livre livre2 = new Livre("Notre-Dame", 1831, auteur);
+        Livre livre3 = new Livre("Hernani", 1830, auteur);
+        java.util.List<Livre> livres = java.util.List.of(livre1, livre2, livre3);
+
+        // Simuler
+        when(livreRepository.findAll()).thenReturn(livres);
+
+        // Exécuter
+        String csv = livreService.exporterCSV();
+
+        // Compter les lignes : 1 en-tête + 3 livres = 4 lignes
+        String[] lignes = csv.split("\n");
+        assertEquals(4, lignes.length);
+    }
 }
