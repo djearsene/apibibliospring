@@ -107,4 +107,62 @@ public class LivreServiceTest {
         String[] lignes = csv.split("\n");
         assertEquals(4, lignes.length);
     }
+
+    // Test 8 : les logs sont bien déclenchés lors d'une recherche réussie
+    @Test
+    void getLivreParId_loggueInfo_siTrouve() {
+        Auteur auteur = new Auteur("Zola", "Française", 1840);
+        Livre livre = new Livre("Germinal", 1885, auteur);
+        livre.setId(1);
+        when(livreRepository.findById(1)).thenReturn(Optional.of(livre));
+
+        // Exécuter sans erreur suffit à vérifier que les logs ne bloquent pas
+        Livre resultat = livreService.getLivreParId(1);
+        assertNotNull(resultat);
+        assertEquals("Germinal", resultat.getTitre());
+    }
+
+    // Test 9 : exporterCSV avec liste vide retourne seulement l'en-tête
+    @Test
+    void exporterCSV_retourneSeulementEnTete_siListeVide() {
+        when(livreRepository.findAll()).thenReturn(java.util.List.of());
+
+        String csv = livreService.exporterCSV();
+
+        assertNotNull(csv);
+        assertTrue(csv.contains("ID,Titre,Auteur,Année"));
+        String[] lignes = csv.split("\n");
+        assertEquals(1, lignes.length);
+    }
+
+    // Test 10 : exporterCSV gère un auteur null
+    @Test
+    void exporterCSV_gereAuteurNull() {
+        Livre livre = new Livre("Sans Auteur", 2000, null);
+        when(livreRepository.findAll()).thenReturn(java.util.List.of(livre));
+
+        String csv = livreService.exporterCSV();
+
+        assertNotNull(csv);
+        assertTrue(csv.contains("Inconnu"));
+    }
+
+    // Test 11 : modifierLivre met à jour les bonnes valeurs
+    @Test
+    void modifierLivre_metAJourLesBonnesValeurs() {
+        Auteur auteur = new Auteur("Hugo", "Française", 1802);
+        Livre livreExistant = new Livre("Ancien titre", 1800, auteur);
+        livreExistant.setId(1);
+
+        Livre livreModifie = new Livre("Nouveau titre", 1850, auteur);
+
+        when(livreRepository.findById(1)).thenReturn(Optional.of(livreExistant));
+        when(livreRepository.save(livreExistant)).thenReturn(livreExistant);
+
+        Livre resultat = livreService.modifierLivre(1, livreModifie);
+
+        assertEquals("Nouveau titre", resultat.getTitre());
+        assertEquals(1850, resultat.getAnnee());
+        verify(livreRepository, times(1)).save(livreExistant);
+    }
 }
