@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.web.multipart.MultipartFile;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/livres")
@@ -88,17 +90,26 @@ public class LivreController {
     }
 
     // GET /livres/export/csv
-@GetMapping("/export/csv")
-@Operation(summary = "Exporter tous les livres en CSV")
-public ResponseEntity<byte[]> exporterCSV() {
-    String contenuCSV = livreService.exporterCSV();
+    @GetMapping("/export/csv")
+    @Operation(summary = "Exporter tous les livres en CSV")
+    public ResponseEntity<byte[]> exporterCSV() {
+        String contenuCSV = livreService.exporterCSV();
 
-    HttpHeaders headers = new HttpHeaders();
-    headers.setContentType(MediaType.parseMediaType("text/csv"));
-    headers.setContentDispositionFormData("attachment", "livres.csv");
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.parseMediaType("text/csv"));
+        headers.setContentDispositionFormData("attachment", "livres.csv");
 
-    return ResponseEntity.ok()
-            .headers(headers)
-            .body(contenuCSV.getBytes());
-}
+        return ResponseEntity.ok()
+                .headers(headers)
+                .body(contenuCSV.getBytes());
+    }
+
+    // POST /livres/import/csv
+    @PostMapping("/import/csv")
+    @Operation(summary = "Importer des livres depuis un fichier CSV")
+    public ResponseEntity<Map<String, Object>> importerCSV(
+            @RequestParam("fichier") MultipartFile fichier) {
+        Map<String, Object> resultat = livreService.importerCSV(fichier);
+        return ResponseEntity.ok(resultat);
+    }
 }

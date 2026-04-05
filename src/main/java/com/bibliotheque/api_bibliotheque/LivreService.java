@@ -8,6 +8,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class LivreService {
@@ -46,7 +53,7 @@ public class LivreService {
     // Rechercher par auteur
     public Page<Livre> rechercherParAuteur(String auteur, Pageable pageable) {
         logger.info("Recherche par auteur : '{}'", auteur);
-        return livreRepository.findByAuteurContainingIgnoreCase(auteur, pageable);
+        return livreRepository.findByAuteurNomContainingIgnoreCase(auteur, pageable);
     }
 
     // Ajouter un livre
@@ -96,4 +103,71 @@ public class LivreService {
         logger.info("Export CSV terminé : {} livres exportés", livres.size());
         return csv.toString();
     }
+
+    // Importer des livres depuis un fichier CSV
+    public Map<String, Object> importerCSV(MultipartFile fichier) {
+        List<Livre> livresImportes = new ArrayList<>();
+        List<String> erreurs = new ArrayList<>();
+        int ligneNumero = 0;
+
+        try (BufferedReader reader = new BufferedReader(
+                new InputStreamReader(fichier.getInputStream()))) {
+
+            String ligne;
+            while ((ligne = reader.readLine()) != null) {
+                ligneNumero++;
+
+                // Ignorer l'en-tête
+                if (ligneNumero == 1)
+                    continue;
+
+                // Ignorer les lignes vides
+                if (ligne.trim().isEmpty())
+                    continue;
+
+                try {
+                    // Découper la ligne par virgule
+                    String[] colonnes = ligne.split(",");
+
+                    if (colonnes.length < 3) {
+                        erreurs.add("Ligne " + ligneNumero + " : format invalide");
+                        continue;
+                    }
+
+                    // Nettoyer les guillemets
+                    String titre = colonnes[0].replace("\"", "").trim();
+                    String nomAuteur = colonnes[1].replace("\"", "").trim();
+                    int annee = Integer.parseInt(colonnes[2].replace("\"", "").trim());
+
+                    // Chercher ou créer l'auteur
+                    Auteur auteur = auteurRepository.findByNom(nomAuteur)
+                            .orElseGet(() -> auteurRepository.save(
+                                    new Auteur(nomAuteur, "Inconnue", 0)));
+
+                    // Créer et sauvegarder le livre
+                    Livre livre = new Livre(titre, annee, auteur);
+                    livresImportes.add(livreRepository.save(livre));
+                    logger.info("Livre importé : '{}'", titre);
+
+                } catch (Exception e) {
+                    erreurs.add("Ligne " + ligneNumero + " : " + e.getMessage());
+                    logger.warn("Erreur à la ligne {} : {}", ligneNumero, e.getMessage());
+                }
+            }
+
+        } catch (Exception e) {
+            logger.error("Erreur lors de la lecture du fichier CSV : {}", e.getMessage());
+            erreurs.add("Erreur de lecture du fichier : " + e.getMessage());
+        }
+
+        Map<String, Object> resultat = new HashMap<>();
+        resultat.put("livresImportes", livresImportes.size());
+        resultat.put("erreurs", erreurs);
+        logger.info("Import CSV terminé : {} livres importés, {} erreurs",
+                livresImportes.size(), erreurs.size());
+        return resultat;
+    }
+
+    @Autowired
+    private AuteurRepository auteurRepository;
 }
