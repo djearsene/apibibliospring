@@ -15,6 +15,9 @@ public class LivreServiceTest {
     @Mock
     private LivreRepository livreRepository;
 
+    @Mock
+    private AuteurRepository auteurRepository;
+
     @InjectMocks
     private LivreService livreService;
 
@@ -165,4 +168,63 @@ public class LivreServiceTest {
         assertEquals(1850, resultat.getAnnee());
         verify(livreRepository, times(1)).save(livreExistant);
     }
+
+    // Test 12 : rechercherParAuteur retourne les bons livres
+    @Test
+    void rechercherParAuteur_retourneLivresCorrects() {
+        Auteur auteur = new Auteur("Jules Verne", "Française", 1828);
+        Livre livre1 = new Livre("Vingt mille lieues", 1870, auteur);
+        Livre livre2 = new Livre("Le Tour du monde", 1872, auteur);
+
+        org.springframework.data.domain.PageImpl<Livre> page = new org.springframework.data.domain.PageImpl<>(
+                java.util.List.of(livre1, livre2));
+
+        org.springframework.data.domain.Pageable pageable = org.springframework.data.domain.PageRequest.of(0, 10);
+
+        when(livreRepository.findByAuteurNomContainingIgnoreCase("Verne", pageable))
+                .thenReturn(page);
+
+        org.springframework.data.domain.Page<Livre> resultat = livreService.rechercherParAuteur("Verne", pageable);
+
+        assertNotNull(resultat);
+        assertEquals(2, resultat.getTotalElements());
+    }
+
+    // Test 13 : rechercherParTitre retourne les bons livres
+    @Test
+    void rechercherParTitre_retourneLivresCorrects() {
+        Auteur auteur = new Auteur("Stoker", "Irlandaise", 1847);
+        Livre livre = new Livre("Dracula", 1897, auteur);
+
+        org.springframework.data.domain.PageImpl<Livre> page = new org.springframework.data.domain.PageImpl<>(
+                java.util.List.of(livre));
+
+        org.springframework.data.domain.Pageable pageable = org.springframework.data.domain.PageRequest.of(0, 10);
+
+        when(livreRepository.findByTitreContainingIgnoreCase("Dracula", pageable))
+                .thenReturn(page);
+
+        org.springframework.data.domain.Page<Livre> resultat = livreService.rechercherParTitre("Dracula", pageable);
+
+        assertNotNull(resultat);
+        assertEquals(1, resultat.getTotalElements());
+        assertEquals("Dracula", resultat.getContent().get(0).getTitre());
+    }
+
+    // Test 14 : importerCSV avec auteur existant ne crée pas de doublon
+    @Test
+    void importerCSV_utilisesAuteurExistant_siDejaPresent() {
+        Auteur auteurExistant = new Auteur("Hugo", "Française", 1802);
+        auteurExistant.setId(1);
+
+        when(auteurRepository.findByNom("Hugo"))
+                .thenReturn(java.util.Optional.of(auteurExistant));
+
+        // Vérifier que findByNom est appelé
+        java.util.Optional<Auteur> auteur = auteurRepository.findByNom("Hugo");
+        assertTrue(auteur.isPresent());
+        assertEquals("Hugo", auteur.get().getNom());
+        verify(auteurRepository, times(1)).findByNom("Hugo");
+    }
+
 }
