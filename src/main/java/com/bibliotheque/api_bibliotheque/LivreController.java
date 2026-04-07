@@ -112,4 +112,15 @@ public class LivreController {
         Map<String, Object> resultat = livreService.importerCSV(fichier);
         return ResponseEntity.ok(resultat);
     }
+
+    // GET /livres/recherche/categorie
+@GetMapping("/recherche/categorie")
+@Operation(summary = "Rechercher des livres par catégorie")
+public ResponseEntity<Page<Livre>> rechercherParCategorie(
+        @RequestParam String categorie,
+        @RequestParam(defaultValue = "0") int page,
+        @RequestParam(defaultValue = "10") int size) {
+    Pageable pageable = PageRequest.of(page, size);
+    return ResponseEntity.ok(livreService.rechercherParCategorie(categorie, pageable));
+}
 }

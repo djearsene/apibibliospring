@@ -18,10 +18,15 @@ public class Livre {
     @Max(value = 2026, message = "L'année ne peut pas dépasser 2026.")
     private int annee;
 
-    // Relation ManyToOne : plusieurs livres pour un auteur
+    // Relation ManyToOne avec Auteur
     @ManyToOne
     @JoinColumn(name = "auteur_id")
     private Auteur auteur;
+
+    // Relation ManyToOne avec Categorie
+    @ManyToOne
+    @JoinColumn(name = "categorie_id")
+    private Categorie categorie;
 
     // Constructeur vide
     public Livre() {}
@@ -33,15 +38,25 @@ public class Livre {
         this.auteur = auteur;
     }
 
+    // Constructeur avec catégorie
+    public Livre(String titre, int annee, Auteur auteur, Categorie categorie) {
+        this.titre = titre;
+        this.annee = annee;
+        this.auteur = auteur;
+        this.categorie = categorie;
+    }
+
     // Getters
     public int getId() { return id; }
     public String getTitre() { return titre; }
     public int getAnnee() { return annee; }
     public Auteur getAuteur() { return auteur; }
+    public Categorie getCategorie() { return categorie; }
 
     // Setters
     public void setId(int id) { this.id = id; }
     public void setTitre(String titre) { this.titre = titre; }
     public void setAnnee(int annee) { this.annee = annee; }
     public void setAuteur(Auteur auteur) { this.auteur = auteur; }
+    public void setCategorie(Categorie categorie) { this.categorie = categorie; }
 }

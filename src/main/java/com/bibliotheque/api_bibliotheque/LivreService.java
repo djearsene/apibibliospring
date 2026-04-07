@@ -170,4 +170,10 @@ public class LivreService {
 
     @Autowired
     private AuteurRepository auteurRepository;
+
+    // Rechercher par catégorie
+public Page<Livre> rechercherParCategorie(String categorie, Pageable pageable) {
+    logger.info("Recherche par catégorie : '{}'", categorie);
+    return livreRepository.findByCategorieNomContainingIgnoreCase(categorie, pageable);
+}
 }

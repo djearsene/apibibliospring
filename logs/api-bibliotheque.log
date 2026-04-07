@@ -104,3 +104,235 @@ This generated password is for development use only. Your security configuration
 2026-04-07 06:26:46 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-04-07 06:26:46 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2026-04-07 06:26:46 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-07 07:08:33 [INFO] c.b.a.ApiBibliothequeApplication - Starting ApiBibliothequeApplication using Java 21.0.10 with PID 6874 (/home/ouanyou80/api-bibliotheque/target/classes started by ouanyou80 in /home/ouanyou80/api-bibliotheque)
+2026-04-07 07:08:33 [DEBUG] c.b.a.ApiBibliothequeApplication - Running with Spring Boot v3.5.0, Spring v6.2.7
+2026-04-07 07:08:33 [INFO] c.b.a.ApiBibliothequeApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-07 07:08:41 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-07 07:08:41 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 195 ms. Found 4 JPA repository interfaces.
+2026-04-07 07:08:48 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-07 07:08:48 [INFO] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-07 07:08:48 [INFO] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2026-04-07 07:08:49 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-07 07:08:49 [INFO] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 14942 ms
+2026-04-07 07:08:49 [DEBUG] c.b.api_bibliotheque.JwtFilter - Filter 'jwtFilter' configured for use
+2026-04-07 07:08:50 [INFO] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-07 07:08:51 [INFO] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
+2026-04-07 07:08:51 [INFO] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-07 07:08:53 [INFO] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-07 07:08:54 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-07 07:08:58 [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@338a4c61
+2026-04-07 07:08:58 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-07 07:08:59 [INFO] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-07 07:09:08 [INFO] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-07 07:09:09 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07 07:09:15 [WARN] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-07 07:09:18 [WARN] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 9dfb59ce-88f6-4090-97de-827e5fe5366b
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-04-07 07:09:18 [INFO] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-04-07 07:09:24 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-07 07:09:25 [INFO] c.b.a.ApiBibliothequeApplication - Started ApiBibliothequeApplication in 57.365 seconds (process running for 60.936)
+2026-04-07 07:12:01 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-07 07:12:01 [INFO] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-07 07:12:01 [INFO] o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2026-04-07 07:15:57 [INFO] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-07 07:15:57 [INFO] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-07 07:15:58 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07 07:15:59 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-07 07:16:00 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-07 07:23:11 [INFO] c.b.a.ApiBibliothequeApplication - Starting ApiBibliothequeApplication using Java 21.0.10 with PID 9383 (/home/ouanyou80/api-bibliotheque/target/classes started by ouanyou80 in /home/ouanyou80/api-bibliotheque)
+2026-04-07 07:23:11 [DEBUG] c.b.a.ApiBibliothequeApplication - Running with Spring Boot v3.5.0, Spring v6.2.7
+2026-04-07 07:23:11 [INFO] c.b.a.ApiBibliothequeApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-07 07:23:18 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-07 07:23:18 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 215 ms. Found 4 JPA repository interfaces.
+2026-04-07 07:23:24 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-07 07:23:24 [INFO] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-07 07:23:24 [INFO] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2026-04-07 07:23:25 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-07 07:23:25 [INFO] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 13685 ms
+2026-04-07 07:23:26 [DEBUG] c.b.api_bibliotheque.JwtFilter - Filter 'jwtFilter' configured for use
+2026-04-07 07:23:26 [INFO] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-07 07:23:27 [INFO] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
+2026-04-07 07:23:27 [INFO] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-07 07:23:35 [INFO] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-07 07:23:35 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-07 07:23:38 [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7bda01da
+2026-04-07 07:23:38 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-07 07:23:40 [INFO] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-07 07:23:58 [INFO] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-07 07:23:59 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07 07:24:02 [WARN] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-07 07:24:04 [WARN] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 96752a26-ca90-47f0-aca0-519ca67ce4b2
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-04-07 07:24:05 [INFO] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-04-07 07:24:06 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-07 07:24:06 [INFO] c.b.a.ApiBibliothequeApplication - Started ApiBibliothequeApplication in 62.127 seconds (process running for 73.626)
+2026-04-07 07:24:06 [INFO] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-07 07:24:06 [INFO] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-07 07:24:06 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07 07:24:06 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-07 07:24:06 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-07 07:25:33 [INFO] c.b.a.ApiBibliothequeApplication - Starting ApiBibliothequeApplication using Java 21.0.10 with PID 11726 (/home/ouanyou80/api-bibliotheque/target/classes started by ouanyou80 in /home/ouanyou80/api-bibliotheque)
+2026-04-07 07:25:33 [DEBUG] c.b.a.ApiBibliothequeApplication - Running with Spring Boot v3.5.0, Spring v6.2.7
+2026-04-07 07:25:33 [INFO] c.b.a.ApiBibliothequeApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-07 07:25:36 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-07 07:25:36 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 127 ms. Found 4 JPA repository interfaces.
+2026-04-07 07:25:37 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-07 07:25:37 [INFO] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-07 07:25:37 [INFO] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2026-04-07 07:25:37 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-07 07:25:37 [INFO] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4154 ms
+2026-04-07 07:25:37 [DEBUG] c.b.api_bibliotheque.JwtFilter - Filter 'jwtFilter' configured for use
+2026-04-07 07:25:38 [INFO] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-07 07:25:38 [INFO] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
+2026-04-07 07:25:38 [INFO] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-07 07:25:39 [INFO] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-07 07:25:39 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-07 07:25:40 [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2b6fcca1
+2026-04-07 07:25:40 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-07 07:25:40 [INFO] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-07 07:25:43 [INFO] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-07 07:25:43 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07 07:25:44 [WARN] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-07 07:25:45 [WARN] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 6397ea0a-7906-4689-9edc-d7314ad06dce
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-04-07 07:25:45 [INFO] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-04-07 07:25:46 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-07 07:25:47 [INFO] c.b.a.ApiBibliothequeApplication - Started ApiBibliothequeApplication in 14.808 seconds (process running for 15.28)
+2026-04-07 07:26:28 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-07 07:26:28 [INFO] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-07 07:26:28 [INFO] o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+2026-04-07 07:31:24 [INFO] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-07 07:31:24 [INFO] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-07 07:31:24 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07 07:31:24 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-07 07:31:24 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-07 07:37:24 [INFO] c.b.a.ApiBibliothequeApplication - Starting ApiBibliothequeApplication using Java 21.0.10 with PID 12554 (/home/ouanyou80/api-bibliotheque/target/classes started by ouanyou80 in /home/ouanyou80/api-bibliotheque)
+2026-04-07 07:37:24 [DEBUG] c.b.a.ApiBibliothequeApplication - Running with Spring Boot v3.5.0, Spring v6.2.7
+2026-04-07 07:37:24 [INFO] c.b.a.ApiBibliothequeApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-07 07:37:27 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-07 07:37:27 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 137 ms. Found 4 JPA repository interfaces.
+2026-04-07 07:37:29 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-07 07:37:30 [INFO] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-07 07:37:30 [INFO] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2026-04-07 07:37:30 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-07 07:37:30 [INFO] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6028 ms
+2026-04-07 07:37:30 [DEBUG] c.b.api_bibliotheque.JwtFilter - Filter 'jwtFilter' configured for use
+2026-04-07 07:37:30 [INFO] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-07 07:37:31 [INFO] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
+2026-04-07 07:37:31 [INFO] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-07 07:37:32 [INFO] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-07 07:37:32 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-07 07:37:33 [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@338a4c61
+2026-04-07 07:37:33 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-07 07:37:33 [INFO] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-07 07:37:38 [INFO] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-07 07:37:38 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07 07:37:40 [WARN] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-07 07:37:41 [WARN] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: d2ba7f44-d5a1-4063-a818-064fd9059f1d
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-04-07 07:37:41 [INFO] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-04-07 07:37:42 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-07 07:37:42 [INFO] c.b.a.ApiBibliothequeApplication - Started ApiBibliothequeApplication in 20.878 seconds (process running for 22.011)
+2026-04-07 07:38:53 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-07 07:38:53 [INFO] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-07 07:38:53 [INFO] o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2026-04-07 07:41:33 [INFO] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-07 07:41:33 [INFO] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-07 07:41:34 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07 07:41:34 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-07 07:41:34 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-07 07:44:08 [INFO] c.b.a.ApiBibliothequeApplication - Starting ApiBibliothequeApplication using Java 21.0.10 with PID 2356 (/home/ouanyou80/api-bibliotheque/target/classes started by ouanyou80 in /home/ouanyou80/api-bibliotheque)
+2026-04-07 07:44:08 [DEBUG] c.b.a.ApiBibliothequeApplication - Running with Spring Boot v3.5.0, Spring v6.2.7
+2026-04-07 07:44:08 [INFO] c.b.a.ApiBibliothequeApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-07 07:44:10 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-07 07:44:10 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 148 ms. Found 4 JPA repository interfaces.
+2026-04-07 07:44:11 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-07 07:44:11 [INFO] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-07 07:44:11 [INFO] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2026-04-07 07:44:11 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-07 07:44:11 [INFO] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3491 ms
+2026-04-07 07:44:11 [DEBUG] c.b.api_bibliotheque.JwtFilter - Filter 'jwtFilter' configured for use
+2026-04-07 07:44:12 [INFO] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-07 07:44:12 [INFO] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
+2026-04-07 07:44:12 [INFO] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-07 07:44:13 [INFO] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-07 07:44:13 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-07 07:44:13 [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@42a05533
+2026-04-07 07:44:13 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-07 07:44:13 [INFO] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-07 07:44:16 [INFO] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-07 07:44:16 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07 07:44:17 [WARN] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-07 07:44:17 [WARN] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 4b39f34e-4bf3-4fc1-974a-fed6f040c992
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-04-07 07:44:17 [INFO] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-04-07 07:44:18 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-07 07:44:18 [INFO] c.b.a.ApiBibliothequeApplication - Started ApiBibliothequeApplication in 11.523 seconds (process running for 12.367)
+2026-04-07 07:44:53 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-07 07:44:53 [INFO] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-07 07:44:53 [INFO] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-04-07 07:44:53 [INFO] c.b.api_bibliotheque.LivreService - Recherche par catégorie : 'Roman'
+2026-04-07 07:44:53 [WARN] o.s.d.w.c.SpringDataJacksonConfiguration$PageModule$WarningLoggingModifier - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2026-04-07 07:47:21 [INFO] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-07 07:47:21 [INFO] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-07 07:47:21 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-07 07:47:21 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-07 07:47:21 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

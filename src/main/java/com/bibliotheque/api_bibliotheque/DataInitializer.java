@@ -16,10 +16,13 @@ public class DataInitializer implements CommandLineRunner {
     @Autowired
     private UtilisateurRepository utilisateurRepository;
 
+    @Autowired
+    private CategorieRepository categorieRepository;
+
     @Override
     public void run(String... args) throws Exception {
 
-        // Créer les utilisateurs par défaut si ils n'existent pas
+        // Créer les utilisateurs par défaut
         if (utilisateurRepository.count() == 0) {
             utilisateurRepository.save(new Utilisateur(
                 "admin", "admin123", "admin@bibliotheque.com",
@@ -27,7 +30,7 @@ public class DataInitializer implements CommandLineRunner {
             utilisateurRepository.save(new Utilisateur(
                 "user", "user123", "user@bibliotheque.com",
                 "Lyon", "France", "ETUDIANT", "ROLE_USER"));
-            System.out.println("Utilisateurs créés : admin (ROLE_ADMIN) et user (ROLE_USER)");
+            System.out.println("Utilisateurs créés : admin et user");
         }
 
         // Ne pas ajouter si des livres existent déjà
@@ -37,6 +40,20 @@ public class DataInitializer implements CommandLineRunner {
         }
 
         System.out.println("Initialisation des données...");
+
+        // Créer des catégories
+        Categorie roman = categorieRepository.save(
+                new Categorie("Roman", "Œuvres de fiction narrative"));
+        Categorie scienceFiction = categorieRepository.save(
+                new Categorie("Science-fiction", "Littérature d'anticipation"));
+        Categorie philosophie = categorieRepository.save(
+                new Categorie("Philosophie", "Œuvres philosophiques"));
+        Categorie histoire = categorieRepository.save(
+                new Categorie("Histoire", "Œuvres historiques"));
+        Categorie poesie = categorieRepository.save(
+                new Categorie("Poésie", "Œuvres poétiques"));
+
+        Categorie[] categories = {roman, scienceFiction, philosophie, histoire, poesie};
 
         // Créer des auteurs
         Auteur a1 = auteurRepository.save(new Auteur("Saint-Exupéry", "Française", 1900));
@@ -51,14 +68,15 @@ public class DataInitializer implements CommandLineRunner {
             "Les Misérables", "L'Étranger"
         };
 
-        // Créer 200 livres
+        // Créer 200 livres avec catégories
         for (int i = 0; i < 200; i++) {
             Auteur auteur = auteurs[i % auteurs.length];
+            Categorie categorie = categories[i % categories.length];
             String titre = titres[i % titres.length] + " - Tome " + (i + 1);
             int annee = 1800 + (i % 200);
-            livreRepository.save(new Livre(titre, annee, auteur));
+            livreRepository.save(new Livre(titre, annee, auteur, categorie));
         }
 
-        System.out.println("5 auteurs et 200 livres ajoutés avec succès !");
+        System.out.println("5 catégories, 5 auteurs et 200 livres ajoutés avec succès !");
     }
 }

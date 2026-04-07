@@ -31,6 +31,7 @@ public class SecurityConfig {
                 // GET est public
                 .requestMatchers(HttpMethod.GET, "/livres/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/auteurs/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/categories/**").permitAll()
                 // Import et export nécessitent ROLE_ADMIN
                 .requestMatchers("/livres/import/**").hasAuthority("ROLE_ADMIN")
                 .requestMatchers("/livres/export/**").hasAuthority("ROLE_ADMIN")
@@ -38,6 +39,9 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST, "/livres/**").hasAuthority("ROLE_ADMIN")
                 .requestMatchers(HttpMethod.PUT, "/livres/**").hasAuthority("ROLE_ADMIN")
                 .requestMatchers(HttpMethod.DELETE, "/livres/**").hasAuthority("ROLE_ADMIN")
+                .requestMatchers(HttpMethod.POST, "/categories/**").hasAuthority("ROLE_ADMIN")
+                .requestMatchers(HttpMethod.PUT, "/categories/**").hasAuthority("ROLE_ADMIN")
+                .requestMatchers(HttpMethod.DELETE, "/categories/**").hasAuthority("ROLE_ADMIN")
                 // Tout le reste nécessite une authentification
                 .anyRequest().authenticated()
             )
