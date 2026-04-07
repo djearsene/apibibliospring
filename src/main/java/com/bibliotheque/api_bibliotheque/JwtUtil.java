@@ -9,42 +9,46 @@ import java.util.Date;
 @Component
 public class JwtUtil {
 
-  // Clé secrète pour signer le token
-  private final Key cleSecrete = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+    private final Key cleSecrete = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+    private final long DUREE = 1000 * 60 * 60 * 24;
 
-  // Durée de validité : 24 heures
-  private final long DUREE = 1000 * 60 * 60 * 24;
-
-  // Générer un token pour un utilisateur
-  public String genererToken(String username) {
-    return Jwts.builder()
-        .setSubject(username)
-        .setIssuedAt(new Date())
-        .setExpiration(new Date(System.currentTimeMillis() + DUREE))
-        .signWith(cleSecrete)
-        .compact();
-  }
-
-  // Extraire le nom d'utilisateur du token
-  public String extraireUsername(String token) {
-    return Jwts.parserBuilder()
-        .setSigningKey(cleSecrete)
-        .build()
-        .parseClaimsJws(token)
-        .getBody()
-        .getSubject();
-  }
-
-  // Vérifier si le token est valide
-  public boolean estValide(String token) {
-    try {
-      Jwts.parserBuilder()
-          .setSigningKey(cleSecrete)
-          .build()
-          .parseClaimsJws(token);
-      return true;
-    } catch (JwtException e) {
-      return false;
+    // Générer un token avec le rôle
+    public String genererToken(String username, String role) {
+        return Jwts.builder()
+                .setSubject(username)
+                .claim("role", role)
+                .setIssuedAt(new Date())
+                .setExpiration(new Date(System.currentTimeMillis() + DUREE))
+                .signWith(cleSecrete)
+                .compact();
     }
-  }
+
+    // Extraire le username
+    public String extraireUsername(String token) {
+        return getClaims(token).getSubject();
+    }
+
+    // Extraire le rôle
+    public String extraireRole(String token) {
+        return getClaims(token).get("role", String.class);
+    }
+
+    // Vérifier si le token est valide
+    public boolean estValide(String token) {
+        try {
+            getClaims(token);
+            return true;
+        } catch (JwtException e) {
+            return false;
+        }
+    }
+
+    // Méthode privée pour extraire les claims
+    private Claims getClaims(String token) {
+        return Jwts.parserBuilder()
+                .setSigningKey(cleSecrete)
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
+    }
 }

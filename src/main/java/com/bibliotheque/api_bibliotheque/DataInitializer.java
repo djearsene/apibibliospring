@@ -13,9 +13,24 @@ public class DataInitializer implements CommandLineRunner {
     @Autowired
     private AuteurRepository auteurRepository;
 
+    @Autowired
+    private UtilisateurRepository utilisateurRepository;
+
     @Override
     public void run(String... args) throws Exception {
 
+        // Créer les utilisateurs par défaut si ils n'existent pas
+        if (utilisateurRepository.count() == 0) {
+            utilisateurRepository.save(new Utilisateur(
+                "admin", "admin123", "admin@bibliotheque.com",
+                "Paris", "France", "TRAVAILLEUR", "ROLE_ADMIN"));
+            utilisateurRepository.save(new Utilisateur(
+                "user", "user123", "user@bibliotheque.com",
+                "Lyon", "France", "ETUDIANT", "ROLE_USER"));
+            System.out.println("Utilisateurs créés : admin (ROLE_ADMIN) et user (ROLE_USER)");
+        }
+
+        // Ne pas ajouter si des livres existent déjà
         if (livreRepository.count() > 0) {
             System.out.println("Des données existent déjà, pas d'initialisation.");
             return;
