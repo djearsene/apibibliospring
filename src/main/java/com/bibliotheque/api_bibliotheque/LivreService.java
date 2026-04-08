@@ -5,25 +5,50 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.ArrayList;
+import org.springframework.web.multipart.MultipartFile;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
-import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class LivreService {
 
-    // Créer le logger pour cette classe
     private static final Logger logger = LoggerFactory.getLogger(LivreService.class);
 
     @Autowired
     private LivreRepository livreRepository;
+
+    @Autowired
+    private AuteurRepository auteurRepository;
+
+    @Autowired
+    private HistoriqueRepository historiqueRepository;
+
+    // Méthode pour obtenir l'utilisateur connecté
+    private String getUtilisateurConnecte() {
+        try {
+            return SecurityContextHolder.getContext()
+                    .getAuthentication().getName();
+        } catch (Exception e) {
+            return "anonyme";
+        }
+    }
+
+    // Méthode pour enregistrer une action dans l'historique
+    private void enregistrerHistorique(String action, String titreLivre) {
+        String username = getUtilisateurConnecte();
+        Historique historique = new Historique(
+                action, titreLivre, username, LocalDateTime.now());
+        historiqueRepository.save(historique);
+        logger.info("Historique enregistré : {} - {} par {}", action, titreLivre, username);
+    }
 
     // Récupérer tous les livres avec pagination
     public Page<Livre> getTousLesLivres(Pageable pageable) {
@@ -56,10 +81,17 @@ public class LivreService {
         return livreRepository.findByAuteurNomContainingIgnoreCase(auteur, pageable);
     }
 
+    // Rechercher par catégorie
+    public Page<Livre> rechercherParCategorie(String categorie, Pageable pageable) {
+        logger.info("Recherche par catégorie : '{}'", categorie);
+        return livreRepository.findByCategorieNomContainingIgnoreCase(categorie, pageable);
+    }
+
     // Ajouter un livre
     public Livre ajouterLivre(Livre livre) {
         logger.info("Ajout d'un nouveau livre : '{}'", livre.getTitre());
         Livre sauvegarde = livreRepository.save(livre);
+        enregistrerHistorique("CREATION", sauvegarde.getTitre());
         logger.info("Livre ajouté avec succès, id : {}", sauvegarde.getId());
         return sauvegarde;
     }
@@ -72,6 +104,7 @@ public class LivreService {
         livre.setAuteur(livreModifie.getAuteur());
         livre.setAnnee(livreModifie.getAnnee());
         Livre sauvegarde = livreRepository.save(livre);
+        enregistrerHistorique("MODIFICATION", sauvegarde.getTitre());
         logger.info("Livre modifié avec succès : '{}'", sauvegarde.getTitre());
         return sauvegarde;
     }
@@ -83,7 +116,10 @@ public class LivreService {
             logger.warn("Tentative de suppression d'un livre inexistant, id {}", id);
             throw new LivreNotFoundException(id);
         }
+        Livre livre = getLivreParId(id);
+        String titre = livre.getTitre();
         livreRepository.deleteById(id);
+        enregistrerHistorique("SUPPRESSION", titre);
         logger.info("Livre supprimé avec succès, id {}", id);
     }
 
@@ -104,7 +140,7 @@ public class LivreService {
         return csv.toString();
     }
 
-    // Importer des livres depuis un fichier CSV
+    // Importer depuis CSV
     public Map<String, Object> importerCSV(MultipartFile fichier) {
         List<Livre> livresImportes = new ArrayList<>();
         List<String> erreurs = new ArrayList<>();
@@ -116,37 +152,29 @@ public class LivreService {
             String ligne;
             while ((ligne = reader.readLine()) != null) {
                 ligneNumero++;
-
-                // Ignorer l'en-tête
                 if (ligneNumero == 1)
                     continue;
-
-                // Ignorer les lignes vides
                 if (ligne.trim().isEmpty())
                     continue;
 
                 try {
-                    // Découper la ligne par virgule
                     String[] colonnes = ligne.split(",");
-
                     if (colonnes.length < 3) {
                         erreurs.add("Ligne " + ligneNumero + " : format invalide");
                         continue;
                     }
 
-                    // Nettoyer les guillemets
                     String titre = colonnes[0].replace("\"", "").trim();
                     String nomAuteur = colonnes[1].replace("\"", "").trim();
                     int annee = Integer.parseInt(colonnes[2].replace("\"", "").trim());
 
-                    // Chercher ou créer l'auteur
                     Auteur auteur = auteurRepository.findByNom(nomAuteur)
                             .orElseGet(() -> auteurRepository.save(
                                     new Auteur(nomAuteur, "Inconnue", 0)));
 
-                    // Créer et sauvegarder le livre
                     Livre livre = new Livre(titre, annee, auteur);
                     livresImportes.add(livreRepository.save(livre));
+                    enregistrerHistorique("IMPORT_CSV", titre);
                     logger.info("Livre importé : '{}'", titre);
 
                 } catch (Exception e) {
@@ -167,13 +195,4 @@ public class LivreService {
                 livresImportes.size(), erreurs.size());
         return resultat;
     }
-
-    @Autowired
-    private AuteurRepository auteurRepository;
-
-    // Rechercher par catégorie
-public Page<Livre> rechercherParCategorie(String categorie, Pageable pageable) {
-    logger.info("Recherche par catégorie : '{}'", categorie);
-    return livreRepository.findByCategorieNomContainingIgnoreCase(categorie, pageable);
-}
 }

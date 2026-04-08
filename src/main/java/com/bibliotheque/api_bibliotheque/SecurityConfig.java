@@ -32,6 +32,8 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/auteurs/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/categories/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/statistiques/**").permitAll()
+                        // Historique réservé à ROLE_ADMIN
+                        .requestMatchers("/historique/**").hasAuthority("ROLE_ADMIN")
                         // Import et export nécessitent ROLE_ADMIN
                         .requestMatchers("/livres/import/**").hasAuthority("ROLE_ADMIN")
                         .requestMatchers("/livres/export/**").hasAuthority("ROLE_ADMIN")
