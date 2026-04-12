@@ -2,6 +2,7 @@ package com.bibliotheque.api_bibliotheque;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -19,18 +20,27 @@ public class DataInitializer implements CommandLineRunner {
     @Autowired
     private CategorieRepository categorieRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Override
     public void run(String... args) throws Exception {
 
-        // Créer les utilisateurs par défaut
+        // Créer les utilisateurs par défaut avec mots de passe hachés
         if (utilisateurRepository.count() == 0) {
             utilisateurRepository.save(new Utilisateur(
-                "admin", "admin123", "admin@bibliotheque.com",
-                "Paris", "France", "TRAVAILLEUR", "ROLE_ADMIN"));
+                    "admin",
+                    passwordEncoder.encode("admin123"),
+                    "admin@bibliotheque.com",
+                    "Paris", "France", "TRAVAILLEUR", "ROLE_ADMIN"));
+
             utilisateurRepository.save(new Utilisateur(
-                "user", "user123", "user@bibliotheque.com",
-                "Lyon", "France", "ETUDIANT", "ROLE_USER"));
-            System.out.println("Utilisateurs créés : admin et user");
+                    "user",
+                    passwordEncoder.encode("user123"),
+                    "user@bibliotheque.com",
+                    "Lyon", "France", "ETUDIANT", "ROLE_USER"));
+
+            System.out.println("Utilisateurs créés avec mots de passe hachés !");
         }
 
         // Ne pas ajouter si des livres existent déjà
@@ -53,7 +63,7 @@ public class DataInitializer implements CommandLineRunner {
         Categorie poesie = categorieRepository.save(
                 new Categorie("Poésie", "Œuvres poétiques"));
 
-        Categorie[] categories = {roman, scienceFiction, philosophie, histoire, poesie};
+        Categorie[] categories = { roman, scienceFiction, philosophie, histoire, poesie };
 
         // Créer des auteurs
         Auteur a1 = auteurRepository.save(new Auteur("Saint-Exupéry", "Française", 1900));
@@ -62,10 +72,10 @@ public class DataInitializer implements CommandLineRunner {
         Auteur a4 = auteurRepository.save(new Auteur("Victor Hugo", "Française", 1802));
         Auteur a5 = auteurRepository.save(new Auteur("Albert Camus", "Française", 1913));
 
-        Auteur[] auteurs = {a1, a2, a3, a4, a5};
+        Auteur[] auteurs = { a1, a2, a3, a4, a5 };
         String[] titres = {
-            "Le Petit Prince", "L'Alchimiste", "Germinal",
-            "Les Misérables", "L'Étranger"
+                "Le Petit Prince", "L'Alchimiste", "Germinal",
+                "Les Misérables", "L'Étranger"
         };
 
         // Créer 200 livres avec catégories

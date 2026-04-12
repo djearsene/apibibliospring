@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,16 +21,22 @@ public class AuthController {
     @Autowired
     private UtilisateurRepository utilisateurRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     // POST /auth/login
     @PostMapping("/login")
     @Operation(summary = "Se connecter et obtenir un token JWT")
-    public ResponseEntity<Map<String, String>> login(@RequestBody Map<String, String> credentials) {
+    public ResponseEntity<Map<String, String>> login(
+            @RequestBody Map<String, String> credentials) {
+
         String username = credentials.get("username");
         String password = credentials.get("password");
 
         Optional<Utilisateur> utilisateur = utilisateurRepository.findByUsername(username);
 
-        if (utilisateur.isPresent() && utilisateur.get().getPassword().equals(password)) {
+        if (utilisateur.isPresent() &&
+                passwordEncoder.matches(password, utilisateur.get().getPassword())) {
             String token = jwtUtil.genererToken(username, utilisateur.get().getRole());
             Map<String, String> response = new HashMap<>();
             response.put("token", token);
@@ -47,7 +54,9 @@ public class AuthController {
     // POST /auth/register
     @PostMapping("/register")
     @Operation(summary = "Créer un nouveau compte utilisateur")
-    public ResponseEntity<Map<String, String>> register(@RequestBody Map<String, String> credentials) {
+    public ResponseEntity<Map<String, String>> register(
+            @RequestBody Map<String, String> credentials) {
+
         String username = credentials.get("username");
         String password = credentials.get("password");
         String email = credentials.get("email");
@@ -61,8 +70,11 @@ public class AuthController {
             return ResponseEntity.status(400).body(erreur);
         }
 
+        // Hacher le mot de passe avant de sauvegarder
+        String motDePasseHache = passwordEncoder.encode(password);
+
         Utilisateur nouvelUtilisateur = new Utilisateur(
-                username, password, email, ville, pays, statut, "ROLE_USER");
+                username, motDePasseHache, email, ville, pays, statut, "ROLE_USER");
         utilisateurRepository.save(nouvelUtilisateur);
 
         Map<String, String> response = new HashMap<>();
