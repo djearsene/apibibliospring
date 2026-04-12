@@ -17,6 +17,8 @@ public class LivreServiceTest {
 
     @Mock
     private AuteurRepository auteurRepository;
+    @Mock
+    private HistoriqueRepository historiqueRepository;
 
     @InjectMocks
     private LivreService livreService;
@@ -54,7 +56,12 @@ public class LivreServiceTest {
 
     @Test
     void supprimerLivre_supprime_siExiste() {
+        Auteur auteur = new Auteur("Zola", "Française", 1840);
+        Livre livre = new Livre("Germinal", 1885, auteur);
+        livre.setId(1);
+
         when(livreRepository.existsById(1)).thenReturn(true);
+        when(livreRepository.findById(1)).thenReturn(Optional.of(livre));
         livreService.supprimerLivre(1);
         verify(livreRepository, times(1)).deleteById(1);
     }
