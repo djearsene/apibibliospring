@@ -44,3 +44,68 @@ This generated password is for development use only. Your security configuration
 2026-04-18 09:31:20 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-04-18 09:31:21 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2026-04-18 09:31:22 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-18 09:44:04 [INFO] c.b.a.ApiBibliothequeApplicationTests - Starting ApiBibliothequeApplicationTests using Java 21.0.10 with PID 3374 (started by ouanyou80 in /home/ouanyou80/api-bibliotheque)
+2026-04-18 09:44:04 [DEBUG] c.b.a.ApiBibliothequeApplicationTests - Running with Spring Boot v3.5.0, Spring v6.2.7
+2026-04-18 09:44:04 [INFO] c.b.a.ApiBibliothequeApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2026-04-18 09:44:06 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-18 09:44:06 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 72 ms. Found 6 JPA repository interfaces.
+2026-04-18 09:44:06 [INFO] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-18 09:44:06 [INFO] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
+2026-04-18 09:44:06 [INFO] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-18 09:44:07 [INFO] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-18 09:44:07 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-18 09:44:07 [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@717b0d81
+2026-04-18 09:44:07 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-18 09:44:07 [INFO] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-18 09:44:08 [INFO] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-18 09:44:08 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-18 09:44:09 [WARN] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-18 09:44:10 [WARN] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 79a51b25-91a6-436a-b851-802d5bd993c4
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-04-18 09:44:10 [INFO] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-04-18 09:44:10 [INFO] c.b.a.ApiBibliothequeApplicationTests - Started ApiBibliothequeApplicationTests in 6.088 seconds (process running for 9.42)
+2026-04-18 09:44:12 [INFO] c.b.api_bibliotheque.LivreService - Export CSV de tous les livres
+2026-04-18 09:44:12 [INFO] c.b.api_bibliotheque.LivreService - Export CSV terminé : 0 livres exportés
+2026-04-18 09:44:12 [INFO] c.b.api_bibliotheque.LivreService - Ajout d'un nouveau livre : 'Les Misérables'
+2026-04-18 09:44:12 [INFO] c.b.api_bibliotheque.LivreService - Historique enregistré : CREATION - Les Misérables par anonyme
+2026-04-18 09:44:12 [INFO] c.b.api_bibliotheque.LivreService - Livre ajouté avec succès, id : 0
+2026-04-18 09:44:12 [INFO] c.b.api_bibliotheque.LivreService - Suppression du livre avec l'id 1
+2026-04-18 09:44:12 [DEBUG] c.b.api_bibliotheque.LivreService - Recherche du livre avec l'id 1
+2026-04-18 09:44:12 [INFO] c.b.api_bibliotheque.LivreService - Livre trouvé : Germinal
+2026-04-18 09:44:12 [INFO] c.b.api_bibliotheque.LivreService - Historique enregistré : SUPPRESSION - Germinal par anonyme
+2026-04-18 09:44:12 [INFO] c.b.api_bibliotheque.LivreService - Livre supprimé avec succès, id 1
+2026-04-18 09:44:12 [INFO] c.b.api_bibliotheque.LivreService - Recherche par titre : 'Dracula'
+2026-04-18 09:44:12 [INFO] c.b.api_bibliotheque.LivreService - Modification du livre avec l'id 1
+2026-04-18 09:44:12 [DEBUG] c.b.api_bibliotheque.LivreService - Recherche du livre avec l'id 1
+2026-04-18 09:44:12 [INFO] c.b.api_bibliotheque.LivreService - Livre trouvé : Ancien titre
+2026-04-18 09:44:12 [INFO] c.b.api_bibliotheque.LivreService - Historique enregistré : MODIFICATION - Nouveau titre par anonyme
+2026-04-18 09:44:12 [INFO] c.b.api_bibliotheque.LivreService - Livre modifié avec succès : 'Nouveau titre'
+2026-04-18 09:44:12 [INFO] c.b.api_bibliotheque.LivreService - Export CSV de tous les livres
+2026-04-18 09:44:12 [INFO] c.b.api_bibliotheque.LivreService - Export CSV terminé : 2 livres exportés
+2026-04-18 09:44:12 [DEBUG] c.b.api_bibliotheque.LivreService - Recherche du livre avec l'id 1
+2026-04-18 09:44:12 [INFO] c.b.api_bibliotheque.LivreService - Livre trouvé : Germinal
+2026-04-18 09:44:12 [INFO] c.b.api_bibliotheque.LivreService - Export CSV de tous les livres
+2026-04-18 09:44:12 [INFO] c.b.api_bibliotheque.LivreService - Export CSV terminé : 3 livres exportés
+2026-04-18 09:44:12 [INFO] c.b.api_bibliotheque.LivreService - Export CSV de tous les livres
+2026-04-18 09:44:12 [INFO] c.b.api_bibliotheque.LivreService - Export CSV terminé : 1 livres exportés
+2026-04-18 09:44:12 [INFO] c.b.api_bibliotheque.LivreService - Recherche par auteur : 'Verne'
+2026-04-18 09:44:12 [DEBUG] c.b.api_bibliotheque.LivreService - Recherche du livre avec l'id 1
+2026-04-18 09:44:12 [INFO] c.b.api_bibliotheque.LivreService - Livre trouvé : Germinal
+2026-04-18 09:44:12 [INFO] c.b.api_bibliotheque.LivreService - Suppression du livre avec l'id 999
+2026-04-18 09:44:12 [WARN] c.b.api_bibliotheque.LivreService - Tentative de suppression d'un livre inexistant, id 999
+2026-04-18 09:44:12 [DEBUG] c.b.api_bibliotheque.LivreService - Recherche du livre avec l'id 999
+2026-04-18 09:44:12 [WARN] c.b.api_bibliotheque.LivreService - Livre non trouvé avec l'id 999
+2026-04-18 09:44:12 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-18 09:44:12 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-18 09:44:12 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
