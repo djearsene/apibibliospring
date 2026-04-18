@@ -42,6 +42,10 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/statistiques/**").permitAll()
                         // Historique réservé à ROLE_ADMIN
                         .requestMatchers("/historique/**").hasAuthority("ROLE_ADMIN")
+                        // Commentaires : lecture publique, écriture authentifiée
+.requestMatchers(HttpMethod.GET, "/commentaires/**").permitAll()
+.requestMatchers(HttpMethod.POST, "/commentaires/**").authenticated()
+.requestMatchers(HttpMethod.DELETE, "/commentaires/**").hasAuthority("ROLE_ADMIN")
                         // Import et export nécessitent ROLE_ADMIN
                         .requestMatchers("/livres/import/**").hasAuthority("ROLE_ADMIN")
                         .requestMatchers("/livres/export/**").hasAuthority("ROLE_ADMIN")

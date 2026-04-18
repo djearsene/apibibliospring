@@ -1,16 +1,22 @@
-2026-04-12 09:07:19 [INFO] c.b.a.ApiBibliothequeApplicationTests - Starting ApiBibliothequeApplicationTests using Java 21.0.10 with PID 4382 (started by ouanyou80 in /home/ouanyou80/api-bibliotheque)
-2026-04-12 09:07:19 [DEBUG] c.b.a.ApiBibliothequeApplicationTests - Running with Spring Boot v3.5.0, Spring v6.2.7
-2026-04-12 09:07:19 [INFO] c.b.a.ApiBibliothequeApplicationTests - No active profile set, falling back to 1 default profile: "default"
-2026-04-12 09:07:20 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-04-12 09:07:20 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 100 ms. Found 5 JPA repository interfaces.
-2026-04-12 09:07:21 [INFO] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-04-12 09:07:21 [INFO] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
-2026-04-12 09:07:21 [INFO] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-04-12 09:07:21 [INFO] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-04-12 09:07:21 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-04-12 09:07:22 [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7e2e0b8a
-2026-04-12 09:07:22 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-04-12 09:07:22 [INFO] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2026-04-18 09:19:26 [INFO] c.b.a.ApiBibliothequeApplication - Starting ApiBibliothequeApplication using Java 21.0.10 with PID 6887 (/home/ouanyou80/api-bibliotheque/target/classes started by ouanyou80 in /home/ouanyou80/api-bibliotheque)
+2026-04-18 09:19:26 [DEBUG] c.b.a.ApiBibliothequeApplication - Running with Spring Boot v3.5.0, Spring v6.2.7
+2026-04-18 09:19:26 [INFO] c.b.a.ApiBibliothequeApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-18 09:19:28 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-18 09:19:28 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 112 ms. Found 6 JPA repository interfaces.
+2026-04-18 09:19:29 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-18 09:19:29 [INFO] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-18 09:19:29 [INFO] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2026-04-18 09:19:29 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-18 09:19:29 [INFO] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2577 ms
+2026-04-18 09:19:29 [DEBUG] c.b.api_bibliotheque.JwtFilter - Filter 'jwtFilter' configured for use
+2026-04-18 09:19:30 [INFO] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-18 09:19:30 [INFO] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
+2026-04-18 09:19:31 [INFO] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-18 09:19:34 [INFO] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-18 09:19:34 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-18 09:19:36 [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@eb91027
+2026-04-18 09:19:36 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-18 09:19:37 [INFO] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 17.2
@@ -18,332 +24,23 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-04-12 09:07:23 [INFO] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-04-12 09:07:23 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-04-12 09:07:24 [WARN] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-04-12 09:07:24 [WARN] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+2026-04-18 09:19:47 [INFO] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-18 09:19:48 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-18 09:19:50 [WARN] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-18 09:19:51 [WARN] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
 
-Using generated security password: 97793dd6-9b82-4f99-b0f1-4d348656add7
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2026-04-12 09:07:24 [INFO] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
-2026-04-12 09:07:24 [INFO] c.b.a.ApiBibliothequeApplicationTests - Started ApiBibliothequeApplicationTests in 6.46 seconds (process running for 10.225)
-2026-04-12 09:07:25 [INFO] c.b.api_bibliotheque.LivreService - Export CSV de tous les livres
-2026-04-12 09:07:25 [INFO] c.b.api_bibliotheque.LivreService - Export CSV terminé : 0 livres exportés
-2026-04-12 09:07:25 [INFO] c.b.api_bibliotheque.LivreService - Ajout d'un nouveau livre : 'Les Misérables'
-2026-04-12 09:07:25 [INFO] c.b.api_bibliotheque.LivreService - Suppression du livre avec l'id 1
-2026-04-12 09:07:25 [DEBUG] c.b.api_bibliotheque.LivreService - Recherche du livre avec l'id 1
-2026-04-12 09:07:25 [WARN] c.b.api_bibliotheque.LivreService - Livre non trouvé avec l'id 1
-2026-04-12 09:07:25 [INFO] c.b.api_bibliotheque.LivreService - Recherche par titre : 'Dracula'
-2026-04-12 09:07:25 [INFO] c.b.api_bibliotheque.LivreService - Modification du livre avec l'id 1
-2026-04-12 09:07:25 [DEBUG] c.b.api_bibliotheque.LivreService - Recherche du livre avec l'id 1
-2026-04-12 09:07:25 [INFO] c.b.api_bibliotheque.LivreService - Livre trouvé : Ancien titre
-2026-04-12 09:07:25 [INFO] c.b.api_bibliotheque.LivreService - Export CSV de tous les livres
-2026-04-12 09:07:25 [INFO] c.b.api_bibliotheque.LivreService - Export CSV terminé : 2 livres exportés
-2026-04-12 09:07:25 [DEBUG] c.b.api_bibliotheque.LivreService - Recherche du livre avec l'id 1
-2026-04-12 09:07:25 [INFO] c.b.api_bibliotheque.LivreService - Livre trouvé : Germinal
-2026-04-12 09:07:25 [INFO] c.b.api_bibliotheque.LivreService - Export CSV de tous les livres
-2026-04-12 09:07:25 [INFO] c.b.api_bibliotheque.LivreService - Export CSV terminé : 3 livres exportés
-2026-04-12 09:07:25 [INFO] c.b.api_bibliotheque.LivreService - Export CSV de tous les livres
-2026-04-12 09:07:25 [INFO] c.b.api_bibliotheque.LivreService - Export CSV terminé : 1 livres exportés
-2026-04-12 09:07:25 [INFO] c.b.api_bibliotheque.LivreService - Recherche par auteur : 'Verne'
-2026-04-12 09:07:25 [DEBUG] c.b.api_bibliotheque.LivreService - Recherche du livre avec l'id 1
-2026-04-12 09:07:25 [INFO] c.b.api_bibliotheque.LivreService - Livre trouvé : Germinal
-2026-04-12 09:07:25 [INFO] c.b.api_bibliotheque.LivreService - Suppression du livre avec l'id 999
-2026-04-12 09:07:25 [WARN] c.b.api_bibliotheque.LivreService - Tentative de suppression d'un livre inexistant, id 999
-2026-04-12 09:07:25 [DEBUG] c.b.api_bibliotheque.LivreService - Recherche du livre avec l'id 999
-2026-04-12 09:07:25 [WARN] c.b.api_bibliotheque.LivreService - Livre non trouvé avec l'id 999
-2026-04-12 09:07:25 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-04-12 09:07:25 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-04-12 09:07:25 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2026-04-12 09:18:24 [INFO] c.b.a.ApiBibliothequeApplicationTests - Starting ApiBibliothequeApplicationTests using Java 21.0.10 with PID 9926 (started by ouanyou80 in /home/ouanyou80/api-bibliotheque)
-2026-04-12 09:18:24 [DEBUG] c.b.a.ApiBibliothequeApplicationTests - Running with Spring Boot v3.5.0, Spring v6.2.7
-2026-04-12 09:18:24 [INFO] c.b.a.ApiBibliothequeApplicationTests - No active profile set, falling back to 1 default profile: "default"
-2026-04-12 09:18:25 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-04-12 09:18:25 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 64 ms. Found 5 JPA repository interfaces.
-2026-04-12 09:18:25 [INFO] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-04-12 09:18:25 [INFO] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
-2026-04-12 09:18:25 [INFO] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-04-12 09:18:26 [INFO] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-04-12 09:18:26 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-04-12 09:18:26 [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@67e1a5fd
-2026-04-12 09:18:26 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-04-12 09:18:26 [INFO] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 17.2
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2026-04-12 09:18:27 [INFO] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-04-12 09:18:27 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-04-12 09:18:27 [WARN] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-04-12 09:18:28 [WARN] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 58f67e3e-6215-4917-9b36-5101a436762e
+Using generated security password: d820a7a4-be27-49bd-9c15-2c8fe793428a
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2026-04-12 09:18:28 [INFO] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
-2026-04-12 09:18:28 [INFO] c.b.a.ApiBibliothequeApplicationTests - Started ApiBibliothequeApplicationTests in 4.398 seconds (process running for 6.923)
-2026-04-12 09:18:29 [INFO] c.b.api_bibliotheque.LivreService - Export CSV de tous les livres
-2026-04-12 09:18:29 [INFO] c.b.api_bibliotheque.LivreService - Export CSV terminé : 0 livres exportés
-2026-04-12 09:18:29 [INFO] c.b.api_bibliotheque.LivreService - Ajout d'un nouveau livre : 'Les Misérables'
-2026-04-12 09:18:29 [INFO] c.b.api_bibliotheque.LivreService - Historique enregistré : CREATION - Les Misérables par anonyme
-2026-04-12 09:18:29 [INFO] c.b.api_bibliotheque.LivreService - Livre ajouté avec succès, id : 0
-2026-04-12 09:18:29 [INFO] c.b.api_bibliotheque.LivreService - Suppression du livre avec l'id 1
-2026-04-12 09:18:29 [DEBUG] c.b.api_bibliotheque.LivreService - Recherche du livre avec l'id 1
-2026-04-12 09:18:29 [INFO] c.b.api_bibliotheque.LivreService - Livre trouvé : Germinal
-2026-04-12 09:18:29 [INFO] c.b.api_bibliotheque.LivreService - Historique enregistré : SUPPRESSION - Germinal par anonyme
-2026-04-12 09:18:29 [INFO] c.b.api_bibliotheque.LivreService - Livre supprimé avec succès, id 1
-2026-04-12 09:18:29 [INFO] c.b.api_bibliotheque.LivreService - Recherche par titre : 'Dracula'
-2026-04-12 09:18:29 [INFO] c.b.api_bibliotheque.LivreService - Modification du livre avec l'id 1
-2026-04-12 09:18:29 [DEBUG] c.b.api_bibliotheque.LivreService - Recherche du livre avec l'id 1
-2026-04-12 09:18:29 [INFO] c.b.api_bibliotheque.LivreService - Livre trouvé : Ancien titre
-2026-04-12 09:18:29 [INFO] c.b.api_bibliotheque.LivreService - Historique enregistré : MODIFICATION - Nouveau titre par anonyme
-2026-04-12 09:18:29 [INFO] c.b.api_bibliotheque.LivreService - Livre modifié avec succès : 'Nouveau titre'
-2026-04-12 09:18:29 [INFO] c.b.api_bibliotheque.LivreService - Export CSV de tous les livres
-2026-04-12 09:18:29 [INFO] c.b.api_bibliotheque.LivreService - Export CSV terminé : 2 livres exportés
-2026-04-12 09:18:29 [DEBUG] c.b.api_bibliotheque.LivreService - Recherche du livre avec l'id 1
-2026-04-12 09:18:29 [INFO] c.b.api_bibliotheque.LivreService - Livre trouvé : Germinal
-2026-04-12 09:18:29 [INFO] c.b.api_bibliotheque.LivreService - Export CSV de tous les livres
-2026-04-12 09:18:29 [INFO] c.b.api_bibliotheque.LivreService - Export CSV terminé : 3 livres exportés
-2026-04-12 09:18:29 [INFO] c.b.api_bibliotheque.LivreService - Export CSV de tous les livres
-2026-04-12 09:18:29 [INFO] c.b.api_bibliotheque.LivreService - Export CSV terminé : 1 livres exportés
-2026-04-12 09:18:29 [INFO] c.b.api_bibliotheque.LivreService - Recherche par auteur : 'Verne'
-2026-04-12 09:18:29 [DEBUG] c.b.api_bibliotheque.LivreService - Recherche du livre avec l'id 1
-2026-04-12 09:18:29 [INFO] c.b.api_bibliotheque.LivreService - Livre trouvé : Germinal
-2026-04-12 09:18:29 [INFO] c.b.api_bibliotheque.LivreService - Suppression du livre avec l'id 999
-2026-04-12 09:18:29 [WARN] c.b.api_bibliotheque.LivreService - Tentative de suppression d'un livre inexistant, id 999
-2026-04-12 09:18:29 [DEBUG] c.b.api_bibliotheque.LivreService - Recherche du livre avec l'id 999
-2026-04-12 09:18:29 [WARN] c.b.api_bibliotheque.LivreService - Livre non trouvé avec l'id 999
-2026-04-12 09:18:29 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-04-12 09:18:29 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-04-12 09:18:29 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2026-04-12 09:36:12 [INFO] c.b.a.ApiBibliothequeApplication - Starting ApiBibliothequeApplication using Java 21.0.10 with PID 18687 (/home/ouanyou80/api-bibliotheque/target/classes started by ouanyou80 in /home/ouanyou80/api-bibliotheque)
-2026-04-12 09:36:12 [DEBUG] c.b.a.ApiBibliothequeApplication - Running with Spring Boot v3.5.0, Spring v6.2.7
-2026-04-12 09:36:12 [INFO] c.b.a.ApiBibliothequeApplication - No active profile set, falling back to 1 default profile: "default"
-2026-04-12 09:36:13 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-04-12 09:36:13 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 62 ms. Found 5 JPA repository interfaces.
-2026-04-12 09:36:14 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-04-12 09:36:14 [INFO] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-04-12 09:36:14 [INFO] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2026-04-12 09:36:14 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-04-12 09:36:14 [INFO] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1589 ms
-2026-04-12 09:36:14 [DEBUG] c.b.api_bibliotheque.JwtFilter - Filter 'jwtFilter' configured for use
-2026-04-12 09:36:14 [INFO] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-04-12 09:36:14 [INFO] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
-2026-04-12 09:36:14 [INFO] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-04-12 09:36:14 [INFO] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-04-12 09:36:14 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-04-12 09:36:15 [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5df7a065
-2026-04-12 09:36:15 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-04-12 09:36:15 [INFO] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 17.2
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2026-04-12 09:36:16 [INFO] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-04-12 09:36:16 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-04-12 09:36:16 [WARN] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-04-12 09:36:16 [WARN] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: b984b549-1e96-4b28-af03-647075082f22
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2026-04-12 09:36:16 [INFO] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
-2026-04-12 09:36:17 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2026-04-12 09:36:17 [INFO] c.b.a.ApiBibliothequeApplication - Started ApiBibliothequeApplication in 5.249 seconds (process running for 5.603)
-2026-04-12 09:37:25 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-04-12 09:37:25 [INFO] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-04-12 09:37:25 [INFO] o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
-2026-04-12 09:45:38 [INFO] c.b.api_bibliotheque.LivreService - Ajout d'un nouveau livre : 'Les Misérables'
-2026-04-12 09:45:38 [INFO] c.b.api_bibliotheque.LivreService - Historique enregistré : CREATION - Les Misérables par admin
-2026-04-12 09:45:38 [INFO] c.b.api_bibliotheque.LivreService - Livre ajouté avec succès, id : 202
-2026-04-12 09:50:31 [INFO] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2026-04-12 09:50:31 [INFO] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2026-04-12 09:50:31 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-04-12 09:50:31 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-04-12 09:50:31 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2026-04-12 09:58:59 [INFO] c.b.a.ApiBibliothequeApplicationTests - Starting ApiBibliothequeApplicationTests using Java 21.0.10 with PID 29482 (started by ouanyou80 in /home/ouanyou80/api-bibliotheque)
-2026-04-12 09:58:59 [DEBUG] c.b.a.ApiBibliothequeApplicationTests - Running with Spring Boot v3.5.0, Spring v6.2.7
-2026-04-12 09:58:59 [INFO] c.b.a.ApiBibliothequeApplicationTests - No active profile set, falling back to 1 default profile: "default"
-2026-04-12 09:59:00 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-04-12 09:59:00 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 73 ms. Found 5 JPA repository interfaces.
-2026-04-12 09:59:01 [INFO] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-04-12 09:59:01 [INFO] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
-2026-04-12 09:59:01 [INFO] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-04-12 09:59:01 [INFO] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-04-12 09:59:01 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-04-12 09:59:02 [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@766db6f9
-2026-04-12 09:59:02 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-04-12 09:59:02 [INFO] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 17.2
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2026-04-12 09:59:03 [INFO] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-04-12 09:59:03 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-04-12 09:59:03 [WARN] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-04-12 09:59:04 [WARN] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 61d89a4c-b4a1-4dc4-af94-565385a35e16
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2026-04-12 09:59:04 [INFO] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
-2026-04-12 09:59:04 [INFO] c.b.a.ApiBibliothequeApplicationTests - Started ApiBibliothequeApplicationTests in 5.571 seconds (process running for 8.9)
-2026-04-12 09:59:05 [INFO] c.b.api_bibliotheque.LivreService - Export CSV de tous les livres
-2026-04-12 09:59:05 [INFO] c.b.api_bibliotheque.LivreService - Export CSV terminé : 0 livres exportés
-2026-04-12 09:59:05 [INFO] c.b.api_bibliotheque.LivreService - Ajout d'un nouveau livre : 'Les Misérables'
-2026-04-12 09:59:05 [INFO] c.b.api_bibliotheque.LivreService - Historique enregistré : CREATION - Les Misérables par anonyme
-2026-04-12 09:59:05 [INFO] c.b.api_bibliotheque.LivreService - Livre ajouté avec succès, id : 0
-2026-04-12 09:59:05 [INFO] c.b.api_bibliotheque.LivreService - Suppression du livre avec l'id 1
-2026-04-12 09:59:05 [DEBUG] c.b.api_bibliotheque.LivreService - Recherche du livre avec l'id 1
-2026-04-12 09:59:05 [INFO] c.b.api_bibliotheque.LivreService - Livre trouvé : Germinal
-2026-04-12 09:59:05 [INFO] c.b.api_bibliotheque.LivreService - Historique enregistré : SUPPRESSION - Germinal par anonyme
-2026-04-12 09:59:05 [INFO] c.b.api_bibliotheque.LivreService - Livre supprimé avec succès, id 1
-2026-04-12 09:59:05 [INFO] c.b.api_bibliotheque.LivreService - Recherche par titre : 'Dracula'
-2026-04-12 09:59:05 [INFO] c.b.api_bibliotheque.LivreService - Modification du livre avec l'id 1
-2026-04-12 09:59:05 [DEBUG] c.b.api_bibliotheque.LivreService - Recherche du livre avec l'id 1
-2026-04-12 09:59:05 [INFO] c.b.api_bibliotheque.LivreService - Livre trouvé : Ancien titre
-2026-04-12 09:59:05 [INFO] c.b.api_bibliotheque.LivreService - Historique enregistré : MODIFICATION - Nouveau titre par anonyme
-2026-04-12 09:59:05 [INFO] c.b.api_bibliotheque.LivreService - Livre modifié avec succès : 'Nouveau titre'
-2026-04-12 09:59:05 [INFO] c.b.api_bibliotheque.LivreService - Export CSV de tous les livres
-2026-04-12 09:59:05 [INFO] c.b.api_bibliotheque.LivreService - Export CSV terminé : 2 livres exportés
-2026-04-12 09:59:05 [DEBUG] c.b.api_bibliotheque.LivreService - Recherche du livre avec l'id 1
-2026-04-12 09:59:05 [INFO] c.b.api_bibliotheque.LivreService - Livre trouvé : Germinal
-2026-04-12 09:59:05 [INFO] c.b.api_bibliotheque.LivreService - Export CSV de tous les livres
-2026-04-12 09:59:05 [INFO] c.b.api_bibliotheque.LivreService - Export CSV terminé : 3 livres exportés
-2026-04-12 09:59:05 [INFO] c.b.api_bibliotheque.LivreService - Export CSV de tous les livres
-2026-04-12 09:59:05 [INFO] c.b.api_bibliotheque.LivreService - Export CSV terminé : 1 livres exportés
-2026-04-12 09:59:05 [INFO] c.b.api_bibliotheque.LivreService - Recherche par auteur : 'Verne'
-2026-04-12 09:59:05 [DEBUG] c.b.api_bibliotheque.LivreService - Recherche du livre avec l'id 1
-2026-04-12 09:59:05 [INFO] c.b.api_bibliotheque.LivreService - Livre trouvé : Germinal
-2026-04-12 09:59:05 [INFO] c.b.api_bibliotheque.LivreService - Suppression du livre avec l'id 999
-2026-04-12 09:59:05 [WARN] c.b.api_bibliotheque.LivreService - Tentative de suppression d'un livre inexistant, id 999
-2026-04-12 09:59:05 [DEBUG] c.b.api_bibliotheque.LivreService - Recherche du livre avec l'id 999
-2026-04-12 09:59:05 [WARN] c.b.api_bibliotheque.LivreService - Livre non trouvé avec l'id 999
-2026-04-12 09:59:05 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-04-12 09:59:05 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-04-12 09:59:05 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2026-04-12 10:20:48 [INFO] c.b.a.ApiBibliothequeApplication - Starting ApiBibliothequeApplication using Java 21.0.10 with PID 40066 (/home/ouanyou80/api-bibliotheque/target/classes started by ouanyou80 in /home/ouanyou80/api-bibliotheque)
-2026-04-12 10:20:48 [DEBUG] c.b.a.ApiBibliothequeApplication - Running with Spring Boot v3.5.0, Spring v6.2.7
-2026-04-12 10:20:48 [INFO] c.b.a.ApiBibliothequeApplication - No active profile set, falling back to 1 default profile: "default"
-2026-04-12 10:20:49 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-04-12 10:20:49 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 66 ms. Found 5 JPA repository interfaces.
-2026-04-12 10:20:50 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-04-12 10:20:50 [INFO] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-04-12 10:20:50 [INFO] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
-2026-04-12 10:20:50 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-04-12 10:20:50 [INFO] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1751 ms
-2026-04-12 10:20:50 [DEBUG] c.b.api_bibliotheque.JwtFilter - Filter 'jwtFilter' configured for use
-2026-04-12 10:20:50 [INFO] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-04-12 10:20:50 [INFO] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
-2026-04-12 10:20:50 [INFO] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-04-12 10:20:51 [INFO] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-04-12 10:20:51 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-04-12 10:20:51 [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7b52b18a
-2026-04-12 10:20:51 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-04-12 10:20:51 [INFO] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 17.2
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2026-04-12 10:20:53 [INFO] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-04-12 10:20:53 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-04-12 10:20:53 [WARN] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-04-12 10:20:54 [WARN] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 6269e195-f777-40b7-8bd5-701a5f76e27d
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2026-04-12 10:20:54 [INFO] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
-2026-04-12 10:20:54 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2026-04-12 10:20:54 [INFO] c.b.a.ApiBibliothequeApplication - Started ApiBibliothequeApplication in 6.351 seconds (process running for 6.753)
-2026-04-12 10:26:12 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-04-12 10:26:12 [INFO] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-04-12 10:26:12 [INFO] o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
-2026-04-12 10:36:49 [INFO] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2026-04-12 10:36:49 [INFO] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2026-04-12 10:36:49 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-04-12 10:36:49 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-04-12 10:36:49 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2026-04-12 10:44:36 [INFO] c.b.a.ApiBibliothequeApplicationTests - Starting ApiBibliothequeApplicationTests using Java 21.0.10 with PID 51592 (started by ouanyou80 in /home/ouanyou80/api-bibliotheque)
-2026-04-12 10:44:36 [DEBUG] c.b.a.ApiBibliothequeApplicationTests - Running with Spring Boot v3.5.0, Spring v6.2.7
-2026-04-12 10:44:36 [INFO] c.b.a.ApiBibliothequeApplicationTests - No active profile set, falling back to 1 default profile: "default"
-2026-04-12 10:44:37 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-04-12 10:44:38 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 84 ms. Found 5 JPA repository interfaces.
-2026-04-12 10:44:38 [INFO] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-04-12 10:44:39 [INFO] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
-2026-04-12 10:44:39 [INFO] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-04-12 10:44:39 [INFO] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-04-12 10:44:39 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-04-12 10:44:39 [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1c06f19c
-2026-04-12 10:44:39 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-04-12 10:44:40 [INFO] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 17.2
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2026-04-12 10:44:41 [INFO] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-04-12 10:44:41 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-04-12 10:44:42 [WARN] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-04-12 10:44:42 [WARN] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 1ff901db-eef5-48c7-995a-4f4f20c09a4e
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2026-04-12 10:44:42 [INFO] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
-2026-04-12 10:44:43 [INFO] c.b.a.ApiBibliothequeApplicationTests - Started ApiBibliothequeApplicationTests in 7.143 seconds (process running for 11.285)
-2026-04-12 10:44:45 [INFO] c.b.api_bibliotheque.LivreService - Export CSV de tous les livres
-2026-04-12 10:44:45 [INFO] c.b.api_bibliotheque.LivreService - Export CSV terminé : 0 livres exportés
-2026-04-12 10:44:45 [INFO] c.b.api_bibliotheque.LivreService - Ajout d'un nouveau livre : 'Les Misérables'
-2026-04-12 10:44:45 [INFO] c.b.api_bibliotheque.LivreService - Historique enregistré : CREATION - Les Misérables par anonyme
-2026-04-12 10:44:45 [INFO] c.b.api_bibliotheque.LivreService - Livre ajouté avec succès, id : 0
-2026-04-12 10:44:45 [INFO] c.b.api_bibliotheque.LivreService - Suppression du livre avec l'id 1
-2026-04-12 10:44:45 [DEBUG] c.b.api_bibliotheque.LivreService - Recherche du livre avec l'id 1
-2026-04-12 10:44:45 [INFO] c.b.api_bibliotheque.LivreService - Livre trouvé : Germinal
-2026-04-12 10:44:45 [INFO] c.b.api_bibliotheque.LivreService - Historique enregistré : SUPPRESSION - Germinal par anonyme
-2026-04-12 10:44:45 [INFO] c.b.api_bibliotheque.LivreService - Livre supprimé avec succès, id 1
-2026-04-12 10:44:45 [INFO] c.b.api_bibliotheque.LivreService - Recherche par titre : 'Dracula'
-2026-04-12 10:44:45 [INFO] c.b.api_bibliotheque.LivreService - Modification du livre avec l'id 1
-2026-04-12 10:44:45 [DEBUG] c.b.api_bibliotheque.LivreService - Recherche du livre avec l'id 1
-2026-04-12 10:44:45 [INFO] c.b.api_bibliotheque.LivreService - Livre trouvé : Ancien titre
-2026-04-12 10:44:45 [INFO] c.b.api_bibliotheque.LivreService - Historique enregistré : MODIFICATION - Nouveau titre par anonyme
-2026-04-12 10:44:45 [INFO] c.b.api_bibliotheque.LivreService - Livre modifié avec succès : 'Nouveau titre'
-2026-04-12 10:44:45 [INFO] c.b.api_bibliotheque.LivreService - Export CSV de tous les livres
-2026-04-12 10:44:45 [INFO] c.b.api_bibliotheque.LivreService - Export CSV terminé : 2 livres exportés
-2026-04-12 10:44:45 [DEBUG] c.b.api_bibliotheque.LivreService - Recherche du livre avec l'id 1
-2026-04-12 10:44:45 [INFO] c.b.api_bibliotheque.LivreService - Livre trouvé : Germinal
-2026-04-12 10:44:45 [INFO] c.b.api_bibliotheque.LivreService - Export CSV de tous les livres
-2026-04-12 10:44:45 [INFO] c.b.api_bibliotheque.LivreService - Export CSV terminé : 3 livres exportés
-2026-04-12 10:44:45 [INFO] c.b.api_bibliotheque.LivreService - Export CSV de tous les livres
-2026-04-12 10:44:45 [INFO] c.b.api_bibliotheque.LivreService - Export CSV terminé : 1 livres exportés
-2026-04-12 10:44:45 [INFO] c.b.api_bibliotheque.LivreService - Recherche par auteur : 'Verne'
-2026-04-12 10:44:45 [DEBUG] c.b.api_bibliotheque.LivreService - Recherche du livre avec l'id 1
-2026-04-12 10:44:45 [INFO] c.b.api_bibliotheque.LivreService - Livre trouvé : Germinal
-2026-04-12 10:44:45 [INFO] c.b.api_bibliotheque.LivreService - Suppression du livre avec l'id 999
-2026-04-12 10:44:45 [WARN] c.b.api_bibliotheque.LivreService - Tentative de suppression d'un livre inexistant, id 999
-2026-04-12 10:44:45 [DEBUG] c.b.api_bibliotheque.LivreService - Recherche du livre avec l'id 999
-2026-04-12 10:44:45 [WARN] c.b.api_bibliotheque.LivreService - Livre non trouvé avec l'id 999
-2026-04-12 10:44:45 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-04-12 10:44:45 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-04-12 10:44:45 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-18 09:19:51 [INFO] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-04-18 09:19:53 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-18 09:19:53 [INFO] c.b.a.ApiBibliothequeApplication - Started ApiBibliothequeApplication in 28.911 seconds (process running for 31.888)
+2026-04-18 09:20:46 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-18 09:20:46 [INFO] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-18 09:20:46 [INFO] o.s.web.servlet.DispatcherServlet - Completed initialization in 27 ms
+2026-04-18 09:31:17 [INFO] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-18 09:31:19 [INFO] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-18 09:31:20 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-18 09:31:21 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-18 09:31:22 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
